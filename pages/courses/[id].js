@@ -1,6 +1,15 @@
 import API from '../../helpers/prismic';
 import Link from "next/link";
 import { getAllIds } from "../../lib/ids";
+import styled from 'styled-components';
+
+const MyLink = styled.div`
+  color: #850353;
+  background: whitesmoke;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export default function Course({ course, courseLessons }) {
   // console.log(course);
@@ -12,9 +21,11 @@ export default function Course({ course, courseLessons }) {
       <h5>Lessons:</h5>
       <ul>
         {courseLessons.map((lesson) => (
-          <Link href="/lessons/[id]" as={`/lessons/${lesson.id}`}>
-            <li>{lesson.data.title[0].text}</li>
-          </Link>
+          <MyLink>
+            <Link href="/lessons/[id]" as={`/lessons/${lesson.id}`}>
+              <li>{lesson.data.title[0].text}</li>
+            </Link>
+          </MyLink>
         ))}
       </ul>
     </div>

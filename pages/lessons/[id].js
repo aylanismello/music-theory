@@ -1,5 +1,16 @@
 import API from "../../helpers/prismic";
+import Lottie from "react-lottie";
 import { getAllIds } from "../../lib/ids";
+
+const defaultOptions = (jsonUrl) => ({
+  loop: true,
+  autoplay: true,
+  // animationData: jsonUrl,
+  path: jsonUrl,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+});
 
 export default function Lesson({ lesson, lessonCells }) {
   console.log(lessonCells);
@@ -8,12 +19,19 @@ export default function Lesson({ lesson, lessonCells }) {
     <div>
       <h1>{lesson.data.title[0].text}</h1>
       <h4>Category: {lesson.data.category}</h4>
-      {lessonCells.map((cell) => (
-        <div>
-          <h5>{cell.data.description}</h5>
-          <audio controls src={cell.data.media_audio.url} />
-        </div>
-      ))}
+      {lessonCells.map((cell) => {
+        const options = defaultOptions(cell.data.media_animation.url);
+        console.log(options);
+        
+        
+        return (
+          <div>
+            <h5>{cell.data.description}</h5>
+            <Lottie options={options} height={400} width={400} />
+            <audio controls src={cell.data.media_audio.url} />
+          </div>
+        );
+      })}
     </div>
   );
 }
