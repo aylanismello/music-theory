@@ -1,94 +1,43 @@
 import Head from "next/head";
 import React from "react";
-const Prismic = require("prismic-javascript");
+import Link from "next/link";
+import API from "../helpers/prismic";
 
-const apiEndpoint = "https://music-theory.prismic.io/api/v2";
-
-export default function Home({ lessons }) {
+export default function Home({ courses }) {
   // console.log(cells);
-  console.log(lessons);
+  // console.log(courses);
   // const lessonsData = lessons.map((l) => l.data);
   // console.log(lessonsData[0]);
 
   return (
     <div className="container">
-      {lessons.map((l) => (
-        <div>
-          <h5>{l.name}</h5>
-          <span>Category: {l.category}</span>
-          <br />
-          <span>Animation link: {l.animation.url}</span>
-          <h5>Cell Info</h5>
-          {l.cells.map((c) => (
-            <div>
-              <div> {c.frame} </div>
-
+      <h1>
+        Course Lists
+      </h1>
+      {courses.map((course) => {
+        const overview = course.data.overview;
+        const title = course.data.title && course.data.title[0].text;
+        return (
+          <button>
+            <Link href="/courses/[id]" as={`/courses/${course.id}`}>
               <div>
-                {" "}
-                <span>Audio for this cell: </span>
-                {c.audio.url}
+                <h5>{title}</h5>
+                <h6>{overview}</h6>
               </div>
-              {/* <div> {c.} </div> */}
-            </div>
-          ))}
-        </div>
-      ))}
+            </Link>
+          </button>
+        );
+      })}
     </div>
   );
 }
 
-const getAllCells = async (lessonId) => {
-  return Prismic.getApi(apiEndpoint).then(function (api) {
-    return api
-      .query(Prismic.Predicates.at("my.cell.lesson_link", lessonId))
-      .then(function (response) {
-        return response.results;
-      })
-      .catch((e) => {
-        return e;
-      });
-  });
-};
-
-const getAllLessons = async () => {
-  return Prismic.getApi(apiEndpoint).then(function (api) {
-    return api
-      .query(Prismic.Predicates.at("document.type", "lesson"))
-      .then(function ({ results }) {
-        return results;
-      })
-      .catch((e) => {
-        return e;
-      });
-  });
-};
-
-const getAllData = async () => {
-  const id = "Xqk3GREAACMAf3RW";
-  let lessons = await getAllLessons();
-  // console.log(lessons);
-
-  for (let i = 0; i < lessons.length; i++) {
-    let cellsForLesson = await getAllCells(id);
-    cellsForLesson = cellsForLesson.map((c) => c.data);
-
-    lessons[i] = {
-      ...lessons[i].data,
-      cells: cellsForLesson,
-    };
-  }
-
-  return {
-    props: { lessons },
-  };
-};
-
 export async function getStaticProps() {
-  let result = { props: {} };
+  let results;
   try {
-    result = await getAllData();
+    results = await API.getAllCourses();
   } catch (e) {
     console.log("error");
   }
-  return result;
+  return { props: { courses: results } };
 }
