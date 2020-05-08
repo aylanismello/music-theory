@@ -1,13 +1,30 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
-    "rules": {
-        "react/react-in-jsx-scope": "off"
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "rules": {
+    "quotes": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": 0,
+    "arrow-body-style": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "globals": {
-        "React": "writable"
-    },
-    "parser": "babel-eslint"
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  }
 }
