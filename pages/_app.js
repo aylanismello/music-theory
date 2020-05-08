@@ -1,5 +1,6 @@
 import App from "next/app";
 import React from "react";
+import MyLayout from "../components/global/MyLayout.js";
 import MyThemeProvider from "../components/global/MyThemeProvider";
 import MyGlobalStyle from "../components/global/MyGlobalStyle";
 
@@ -9,8 +10,10 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <MyThemeProvider>
-        <Component {...pageProps} />
         <MyGlobalStyle />
+        <MyLayout>
+          <Component {...pageProps} />
+        </MyLayout>
       </MyThemeProvider>
     );
   }

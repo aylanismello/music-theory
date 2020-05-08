@@ -48,6 +48,9 @@ const cssReset = `
 
 const GlobalStyle = createGlobalStyle`
  ${cssReset}
+ body {
+   font-family: 'Baloo Da 2', 'Arial';
+ }
 `;
 
 export default GlobalStyle;

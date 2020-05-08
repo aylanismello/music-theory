@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React from "react";
 import Link from "next/link";
 import API from "../helpers/prismic";
@@ -11,11 +10,9 @@ export default function Home({ courses }) {
 
   return (
     <div className="container">
-      <h1>
-        Course Lists
-      </h1>
+      <h1>Course Lists</h1>
       {courses.map((course) => {
-        const overview = course.data.overview;
+        const { overview } = course.data;
         const title = course.data.title && course.data.title[0].text;
         return (
           <button>

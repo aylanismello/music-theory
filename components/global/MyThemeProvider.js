@@ -3,14 +3,14 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    primary: "#0070f3",
+    blue: "#00A3FF",
+    green: "#4CD964",
+    black: "#464646",
   },
 };
 
 const MyThemeProvider = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    {children}
-  </ThemeProvider>
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 
 export default MyThemeProvider;
