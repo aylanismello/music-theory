@@ -1,4 +1,4 @@
-const Prismic = require("prismic-javascript");
+import Prismic from "prismic-javascript";
 const apiEndpoint = "https://music-theory.prismic.io/api/v2";
 
 export default {
