@@ -13,7 +13,10 @@
     "quotes": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-props-no-spreading": 0,
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "react/prop-types": 0,
+    "implicit-arrow-linebreak": 0,
+    "react/react-in-jsx-scope": 0
   },
   "settings": {
     "react": {
