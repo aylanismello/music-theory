@@ -1,6 +1,6 @@
-import API from "../../helpers/prismic";
 import Lottie from "react-lottie";
-import { getAllIds } from "../../lib/ids";
+import API from "../../helpers/prismic";
+import getAllIds from "../../lib/ids";
 
 const defaultOptions = (jsonUrl) => ({
   loop: true,
@@ -13,17 +13,13 @@ const defaultOptions = (jsonUrl) => ({
 });
 
 export default function Lesson({ lesson, lessonCells }) {
-  console.log(lessonCells);
-
   return (
     <div>
       <h1>{lesson.data.title[0].text}</h1>
       <h4>Category: {lesson.data.category}</h4>
       {lessonCells.map((cell) => {
         const options = defaultOptions(cell.data.media_animation.url);
-        console.log(options);
-        
-        
+
         return (
           <div>
             <h5>{cell.data.description}</h5>

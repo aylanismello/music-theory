@@ -8,9 +8,6 @@ export default {
       return api
         .query("")
         .then(({ results }) => {
-          // console.log(response);
-          // console.log('got the shit');
-          // return response;
           return results.map((result) => result.id);
         })
         .catch((e) => {

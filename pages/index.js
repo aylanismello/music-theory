@@ -3,11 +3,6 @@ import Link from "next/link";
 import API from "../helpers/prismic";
 
 export default function Home({ courses }) {
-  // console.log(cells);
-  // console.log(courses);
-  // const lessonsData = lessons.map((l) => l.data);
-  // console.log(lessonsData[0]);
-
   return (
     <div className="container">
       <h1>Course Lists</h1>

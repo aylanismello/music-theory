@@ -7,6 +7,12 @@ const theme = {
     green: "#4CD964",
     black: "#464646",
   },
+  zIndex: {
+    top: 3,
+    middle: 2,
+    bottom: 1
+  },
+  topNavHeight: '70px'
 };
 
 const MyThemeProvider = ({ children }) => (
