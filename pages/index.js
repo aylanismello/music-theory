@@ -1,26 +1,26 @@
 import React from "react";
-import Link from "next/link";
+import styled from "styled-components";
 import API from "../helpers/prismic";
+import CourseList from "../components/CourseList";
+
+const Header = styled.h1`
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+`;
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 export default function Home({ courses }) {
   return (
-    <div className="container">
-      <h1>Course Lists</h1>
-      {courses.map((course) => {
-        const { overview } = course.data;
-        const title = course.data.title && course.data.title[0].text;
-        return (
-          <button>
-            <Link href="/courses/[id]" as={`/courses/${course.id}`}>
-              <div>
-                <h5>{title}</h5>
-                <h6>{overview}</h6>
-              </div>
-            </Link>
-          </button>
-        );
-      })}
-    </div>
+    <ContentContainer>
+      <Header>What do you want to learn?</Header>
+      <CourseList courses={courses} />
+    </ContentContainer>
   );
 }
 

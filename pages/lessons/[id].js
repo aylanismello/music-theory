@@ -24,7 +24,7 @@ export default function Lesson({ lesson, lessonCells }) {
           <div>
             <h5>{cell.data.description}</h5>
             <Lottie options={options} height={400} width={400} />
-            <audio controls src={cell.data.media_audio.url} />
+            <audio src={cell.data.media_audio.url} />
           </div>
         );
       })}
