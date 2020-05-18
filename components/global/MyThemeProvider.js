@@ -23,6 +23,12 @@ const theme = {
     phoneWidth: "768px",
     tinyWidth: "350px",
   },
+  maxWidth: {
+    desktop: '900px'
+  },
+  debug: {
+    borders: true
+  }
 };
 
 // theme.mixins = {

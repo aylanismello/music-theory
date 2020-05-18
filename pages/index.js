@@ -2,14 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import API from "../helpers/prismic";
 import CourseList from "../components/CourseList";
+import Header from '../components/shared/Header';
 
-const Header = styled.h1`
-  font-size: 36px;
-  font-weight: 600;
-  text-align: center;
-`;
 
-const ContentContainer = styled.div`
+const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,10 +13,10 @@ const ContentContainer = styled.div`
 
 export default function Home({ courses }) {
   return (
-    <ContentContainer>
+    <HomeContainer>
       <Header>What do you want to learn?</Header>
       <CourseList courses={courses} />
-    </ContentContainer>
+    </HomeContainer>
   );
 }
 

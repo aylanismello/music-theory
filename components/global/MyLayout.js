@@ -1,15 +1,27 @@
 import styled from "styled-components";
 import TopNav from "../TopNav";
 
+const ContentContainer = styled.div`
+  border: ${({ theme }) => (theme.debug.borders ? '1px solid black' : '')};
+  display: flex;
+  justify-content: center;
+`;
+
 const Content = styled.div`
-  padding: 2rem;
+  border: ${({ theme }) => (theme.debug.borders ? "1px solid red" : "")};
+  width: ${({ theme }) => theme.maxWidth.desktop};
+  max-width: ${({ theme }) => theme.maxWidth.desktop};
+  padding: 3rem 1rem;
   margin-top: ${({ theme }) => theme.topNavHeight};
+  /* display */
 `;
 
 const MyLayout = ({ children }) => (
   <>
     <TopNav />
-    <Content>{children}</Content>
+    <ContentContainer>
+      <Content>{children}</Content>
+    </ContentContainer>
   </>
 );
 

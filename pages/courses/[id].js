@@ -1,31 +1,40 @@
-import API from "../../helpers/prismic";
-import Link from "next/link";
 import styled from "styled-components";
+import API from "../../helpers/prismic";
 import getAllIds from "../../lib/ids";
+import InfoContainer from "../../components/shared/InfoContainer";
+import Header from "../../components/shared/Header";
+import LessonList from "../../components/LessonList";
 
-const MyLink = styled.div`
-  color: #850353;
-  background: whitesmoke;
-  &:hover {
-    cursor: pointer;
+const ContentContainer = styled.div`
+  padding: 2rem;
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.sizes.phoneWidth}) {
+    margin-top: 1rem;
+    flex-direction: column-reverse;
+    align-items: center;
   }
 `;
 
 export default function Course({ course, courseLessons }) {
+  const { data } = course;
+  const courseName = data.title[0].text;
+  const infoHeader = `Learn about ${courseName}`;
+  
   return (
     <div>
-      <h3>{course.data.title[0].text}</h3>
+      <Header>{courseName}</Header>
 
-      <h5>Lessons:</h5>
-      <ul>
-        {courseLessons.map((lesson) => (
-          <MyLink>
-            <Link href="/lessons/[id]" as={`/lessons/${lesson.id}`}>
-              <li>{lesson.data.title[0].text}</li>
-            </Link>
-          </MyLink>
-        ))}
-      </ul>
+      <ContentContainer>
+        <LessonList lessons={courseLessons} />
+
+        <InfoContainer header={infoHeader}>
+          {data.overview}
+        </InfoContainer>
+      </ContentContainer>
     </div>
   );
 }
