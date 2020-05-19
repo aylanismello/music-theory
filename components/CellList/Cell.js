@@ -11,6 +11,7 @@ const CellContainer = styled.div`
   padding: 1rem;
   /* max-width: 300px; */
   height: fit-content;
+  margin-bottom: 2rem;
 
   &:hover {
     cursor: pointer;

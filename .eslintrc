@@ -19,7 +19,8 @@
     "react/react-in-jsx-scope": 0,
     "eol-last": 0,
     "comma-dangle": 0,
-    "react/button-has-type": 0
+    "react/button-has-type": 0,
+    "camelcase": 0
   },
   "settings": {
     "react": {

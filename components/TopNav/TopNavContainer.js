@@ -15,7 +15,7 @@ const TopNav = styled.div`
   display: flex;
   align-items: center;
   width: ${({ theme }) => theme.maxWidth.desktop};
-  /* padding: 0.5rem 2rem; */
+  padding: 0 1rem;
 `;
 
 export default ({ children }) => (

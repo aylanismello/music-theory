@@ -7,6 +7,7 @@ const theme = {
     green: "#4CD964",
     black: "#13101D",
     gray: "#C4C4C4",
+    backgroundColor: "#EEEEEE",
   },
   zIndex: {
     top: 3,
@@ -24,11 +25,11 @@ const theme = {
     tinyWidth: "350px",
   },
   maxWidth: {
-    desktop: '900px'
+    desktop: "900px",
   },
   debug: {
-    borders: false
-  }
+    borders: false,
+  },
 };
 
 // theme.mixins = {

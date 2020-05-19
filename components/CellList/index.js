@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Cell from './Cell';
 
-const CellList = styled.div``;
+const CellList = styled.div`
+  padding-top: 400px;
+`;
 
 export default ({ lessonCells, selectCell }) => (
   <CellList>
