@@ -1,4 +1,11 @@
 import Lottie from "react-lottie";
+import styled from 'styled-components';
+
+const MediaScreen = styled.div`
+
+width: 400px;
+height: 400px;
+`;
 
 
 export default ({ selectedCell, cellName }) => {

@@ -11,9 +11,8 @@ const Content = styled.div`
   border: ${({ theme }) => (theme.debug.borders ? "1px solid red" : "")};
   width: ${({ theme }) => theme.maxWidth.desktop};
   max-width: ${({ theme }) => theme.maxWidth.desktop};
-  padding: 3rem 1rem;
+  padding-top: 2rem;
   margin-top: ${({ theme }) => theme.topNavHeight};
-  /* display */
 `;
 
 const MyLayout = ({ children }) => (

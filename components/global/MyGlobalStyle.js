@@ -50,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
  ${cssReset}
  body {
    font-family: 'Baloo Da 2', 'Arial';
+   background: #EEEEEE; 
  }
 
  a {
