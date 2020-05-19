@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 
 const LottieContainer = styled.div`
-  width: 400px;
+  width: 100%;
   height: 400px;
   background: white;
   border: ${({ theme }) => (theme.debug.borders ? "1px solid green" : "")};
