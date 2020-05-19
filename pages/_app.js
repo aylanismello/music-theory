@@ -1,6 +1,6 @@
 import App from "next/app";
 import React from "react";
-import MyLayout from "../components/global/MyLayout.js";
+import MyLayout from "../components/global/MyLayout";
 import MyThemeProvider from "../components/global/MyThemeProvider";
 import MyGlobalStyle from "../components/global/MyGlobalStyle";
 

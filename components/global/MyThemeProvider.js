@@ -27,7 +27,7 @@ const theme = {
     desktop: '900px'
   },
   debug: {
-    borders: true
+    borders: false
   }
 };
 
