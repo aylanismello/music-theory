@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 const CellContainer = styled.div`
   background: linear-gradient(0deg, #eeeeee, #eeeeee);
@@ -12,7 +11,7 @@ const CellContainer = styled.div`
   padding: 1rem;
   /* max-width: 300px; */
   height: fit-content;
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -22,10 +21,9 @@ const CellContainer = styled.div`
   } */
 `;
 
-export default ({ cell }) => (
-  <CellContainer>
+export default ({ cell, selectCell }) => (
+  <CellContainer onClick={() => selectCell(cell)}>
     <h5>{cell.data.description}</h5>
-    {/* <Lottie options={options} height={400} width={400} /> */}
     <audio src={cell.data.media_audio.url} />
   </CellContainer>
 );
